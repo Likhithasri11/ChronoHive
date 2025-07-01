@@ -30,19 +30,7 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
 
-    console.log('Logging in with:', formData);
-
-    // Placeholder for API login
-    if (formData.email === 'test@example.com' && formData.password === 'password') {
-      localStorage.setItem('token', 'mockToken123'); // Simulate token storage
-      navigate('/dashboard');
-    } else {
-      setError('Invalid email or password');
-    }
-  };
 
   return (
     <div className="login-container">
