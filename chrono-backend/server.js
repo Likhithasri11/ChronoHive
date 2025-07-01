@@ -1,33 +1,34 @@
- const express = require('express');
-const dotenv = require('dotenv');
-const cors = require('cors');
-const connectDB = require('./config/db');
+import path from 'path';
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import cors from 'cors';
 
-// Load env variables
+import authRoutes from './routes/authRoutes.js';
+import capsuleRoutes from './routes/capsuleRoutes.js';
+
 dotenv.config();
-
-// Connect to MongoDB
-connectDB();
-
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
-app.use('/uploads', express.static('uploads')); // serve static files
+app.use('/uploads', express.static('uploads'));
 
-// Routes
-app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/capsules', require('./routes/capsuleRoutes'));
+app.use('/api/auth', authRoutes);
+app.use('/api/capsules', capsuleRoutes);
 
-// Root route
-app.get('/', (req, res) => {
-  res.send('ChronoHive Backend is running...');
-});
+// Serve frontend
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, 'build', 'index.html'))
+);
 
-// Start server
+// MongoDB and server start
+import connectDB from './config/db.js';
+connectDB();
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
 });
-
