@@ -1,7 +1,20 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
+import axios from 'axios';
 
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await axios.post('http://localhost:5000/api/auth/login', formData);
+
+    localStorage.setItem('token', res.data.token);
+    navigate('/dashboard');
+  } catch (err) {
+    console.error(err.response?.data || err.message);
+    setError(err.response?.data?.msg || 'Login failed');
+  }
+};
 const Login = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
