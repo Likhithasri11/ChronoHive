@@ -1,0 +1,169 @@
+/* Ensure full screen height */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Container with background and center alignment */
+.capsule-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+}
+
+/* The main form box */
+.capsule-form {
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Form title */
+.capsule-form h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Group each field */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Field labels */
+.form-group label {
+  display: block;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+/* Inputs and textarea */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+}
+
+/* Focus effect */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #f9844a;
+  box-shadow: 0 0 0 2px rgba(255, 126, 95, 0.3);
+}
+
+/* Optional file name preview */
+.file-preview {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Submit button */
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.1rem;
+  background-color: #ff7e5f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover */
+.submit-btn:hover {
+  background-color: #eb6a4f;
+}
+
+/* Responsive tweak */
+@media (max-width: 480px) {
+  .capsule-form {
+    padding: 30px 20px;
+  }
+
+  .submit-btn {
+    font-size: 1rem;
+  }
+}
+
+
+.capsule-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2ede7; /* match landing */
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.capsule-form {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.capsule-form h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #444;
+}
+
+.capsule-form input[type="text"],
+.capsule-form input[type="date"],
+.capsule-form input[type="file"],
+.capsule-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: #fffdfb;
+}
+
+.capsule-form textarea {
+  resize: vertical;
+}
+
+.capsule-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4b3b47;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.capsule-form button:hover {
+  background-color: #5e4a5e;
+}
